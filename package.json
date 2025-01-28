@@ -4,14 +4,13 @@
   "description": "A Vuex persistence plugin in Typescript",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "sideEffects": false,
-  "browser": {
-    "./dist/cjs/index.js": "./dist/umd/index.js",
-    "./dist/esm/index.js": "./dist/esm/index.js"
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
   },
-  "unpkg": "dist/umd/index.min.js",
-  "jsdelivr": "dist/umd/index.min.js",
-  "typings": "dist/types/index.d.ts",
   "types": "dist/types/index.d.ts",
   "repository": {
     "type": "git",
@@ -23,7 +22,6 @@
     "predoc": "npm run doc:clean",
     "doc": "typedoc --ignoreCompilerErrors --mode modules --name vuex-persist --out docs src",
     "postdoc": "nodetouch docs/.nojekyll",
-    "prebuild": "rimraf dist .rpt2_cache",
     "build": "rollup -c build/rollup.config.js",
     "prepublishOnly": "npm run build",
     "pretest": "npm run build",
@@ -54,7 +52,6 @@
   "homepage": "https://github.com/championswimmer/vuex-persist#readme",
   "devDependencies": {
     "@types/chai": "^4.1.4",
-    "@types/lodash": "^4.6.4",
     "@types/mocha": "^5.2.5",
     "chai": "^4.1.2",
     "localforage": "^1.7.2",
@@ -65,19 +62,19 @@
     "rollup": "^1.27.4",
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-typescript2": "^0.25.2",
-    "rollup-plugin-uglify": "^6.0.3",
     "touch": "^3.1.0",
     "ts-node": "^8.5.2",
     "typedoc": "^0.15.3",
     "typescript": "^3.0.3",
-    "vue": "^2.5.17",
-    "vuex": "^3.0.1"
+    "vue": "^3.5.13",
+    "vuex": "^4.1.0"
   },
   "dependencies": {
-    "deepmerge": "^4.2.2",
+    "deepmerge": "^4.3.1",
     "flatted": "^3.0.5"
   },
   "peerDependencies": {
-    "vuex": ">=2.5"
+    "vue": ">=3.5.0",
+    "vuex": ">=4.0.0"
   }
 }

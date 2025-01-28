@@ -5,7 +5,8 @@ import configs from './configs'
 const externals = [
   'deepmerge',
   'vuex',
-  'flatted'
+  'flatted',
+  'vue',
 ]
 
 const genTsPlugin = (configOpts) => typescript({
